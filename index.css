@@ -1,0 +1,115 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Poppins", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 45px;
+    color: #ffcc33;
+    margin-top: 25px;
+    text-shadow: 0 0 15px #ffdd55;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.left-box {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.right-box {
+    width: 40%;
+    text-align: left;
+    padding-left: 50px;
+}
+
+
+.jd-img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ffcc33;
+    box-shadow: 0 0 25px rgba(255, 215, 100, 0.4);
+    transition: 0.3s;
+}
+
+.jd-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(255, 215, 100, 0.7);
+}
+
+.menu a {
+    font-size: 28px;
+    color: bisque;
+    text-decoration: none;
+    transition: 0.3s;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.menu a:hover {
+    color: #ffb347;
+    text-shadow: 0 0 10px #ffcc66;
+}
+
+
+@media screen and (max-width: 768px) {
+    .page-title {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+    
+    .main-container {
+        flex-direction: column;
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+    
+    .left-box {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .right-box {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .jd-img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .menu a {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .page-title {
+        font-size: 28px;
+    }
+    
+    .jd-img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .menu a {
+        font-size: 20px;
+    }
+}
