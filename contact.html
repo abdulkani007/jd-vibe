@@ -1,62 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Contact Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - JD Universe</title>
     <link rel="stylesheet" href="contact.css">
 </head>
-
 <body>
-
-    <h1 class="page-title">Contact Us</h1>
-    <hr>
-
-    <div class="contact-container">
+    <canvas id="particles"></canvas>
+    
+    <div class="content-wrapper">
+        <h1 class="page-title">Contact Us</h1>
         
-        <div class="left-box">
+        <div class="divider"></div>
+        
+        <div class="contact-container">
+            <div class="left-box">
+                <div class="form-card">
+                    <h2 class="form-title">Send us a Message</h2>
+                    <form action="https://formspree.io/f/xdkqdjyz" method="POST">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="input-box" placeholder="Your Name" required>
+                        </div>
 
-            
-            <form action="https://formspree.io/f/xdkqdjyz" method="POST">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone" class="input-box" placeholder="Your Phone" required>
+                        </div>
 
-                <label>Name:</label><br>
-                <input type="text" name="name" class="input-box" required><br><br>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" class="input-box" placeholder="your@email.com" required>
+                        </div>
 
-                <label>Phone Number:</label><br>
-                <input type="number" name="phone" class="input-box" required><br><br>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" rows="5" class="textarea-box" placeholder="Your message here..." required></textarea>
+                        </div>
 
-                <label>Email:</label><br>
-                <input type="email" name="email" class="input-box" required><br><br>
+                        <button type="submit" class="send-btn">
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
 
-                <label>Description:</label><br>
-                <textarea name="message" rows="5" class="textarea-box" required></textarea><br><br>
-
-                <button class="send-btn">Send</button>
-
-            </form>
-
+            <div class="right-box">
+                <div class="social-card">
+                    <h2 class="social-title">Connect With Us</h2>
+                    
+                    <div class="social-section">
+                        <p class="section-label">Follow Me</p>
+                        <a href="https://www.instagram.com/alcoholic__jd?igsh=NnlrbXFhdWF0bnJq" class="social-link" target="_blank">
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                    
+                    <div class="divider-small"></div>
+                    
+                    <div class="social-section">
+                        <p class="section-label">Subscribe</p>
+                        <a href="https://t.me/JackedVibe" class="social-link" target="_blank">
+                            <span>Telegram</span>
+                        </a>
+                    </div>
+                    
+                    <div class="divider-small"></div>
+                    
+                    <div class="social-section">
+                        <p class="section-label">Follow on Twitter</p>
+                        <a href="https://x.com/Ameerabd1718" class="social-link" target="_blank">
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                    
+                    <div class="divider-small"></div>
+                    
+                    <div class="email-section">
+                        <p class="section-label">Email</p>
+                        <a href="mailto:abdsameeeha95@gmail.com" class="email-link">abdsameeeha95@gmail.com</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="right-box">
-
-            <p class="follow-text"><b>Follow Me ╰┈➤</b></p>
-
-            <h2><a class="social-link" href="https://www.instagram.com/alcoholic__jd?igsh=NnlrbXFhdWF0bnJq">Instagram ★</a></h2>
-            <hr>
-
-            <p class="follow-text"><b>Subscribe 🔔</b></p>
-            <h2><a class="social-link" href="https://t.me/JackedVibe">Telegram 🌐</a></h2>
-            <hr>
-
-            <p class="follow-text"><b>1M♡ ⎙ 3M⌲</b></p>
-            <h2><a class="social-link" href="https://x.com/Ameerabd1718">Twitter (𝕏)</a></h2>
-            <hr>
-
-            <p class="email-text">Email : abdsameeeha95@gmail.com</p>
-
+        
+        <div class="divider"></div>
+        
+        <div class="home-link">
+            <a href="index.html" class="btn-home">
+                <span>Back to Home</span>
+            </a>
         </div>
-
     </div>
-
-    <h3 class="home-link"><a href="index.html">Home Page</a></h3>
-
+    <script src="particles.js"></script>
 </body>
 </html>

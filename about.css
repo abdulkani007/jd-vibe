@@ -1,190 +1,325 @@
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .main-title {
     text-align: center;
-    font-size: 48px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ff6b35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+    margin-bottom: 20px;
     font-weight: 700;
-    color: #ffcc33;
-    letter-spacing: 2px;
-    margin-top: 30px;
-    text-shadow: 0px 0px 20px #ffdd55;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .sub-title {
     text-align: center;
-    font-size: 24px;
-    color: #e0e0e0;
-    margin-bottom: 20px;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: rgba(224, 224, 224, 0.9);
+    margin-bottom: 30px;
     letter-spacing: 1px;
+    line-height: 1.6;
+    animation: fadeIn 1.2s ease-out;
 }
 
-p {
-    font-size: 20px;
-    width: 80%;
-    margin: auto;
-    color: #dcdcdc;
-    line-height: 1.9;
-    text-align: center;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-hr {
+.divider {
     width: 80%;
-    border: none;
+    max-width: 600px;
     height: 2px;
-    background: linear-gradient(to right, transparent, #444, transparent);
-    margin: 30px auto;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+    margin: 40px auto;
 }
 
-.table-box {
-    width: 85%;
-    margin: auto;
-    margin-top: 40px;
+.intro-section {
+    margin: 40px auto;
+    max-width: 900px;
 }
 
-img {
+.intro-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(220, 220, 220, 0.9);
+    line-height: 2;
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.8s ease-out;
+    transition: all 0.4s ease;
+}
+
+.intro-text:hover {
+    border-color: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 50px auto;
+    max-width: 1200px;
+    align-items: center;
+}
+
+.profile-image {
+    position: relative;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.profile-image img {
     width: 100%;
-    border-radius: 15px;
-    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+    border: 3px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.6s ease;
+}
+
+.profile-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.profile-content {
+    animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .jd-name {
-    color: #5bbcff;
-    font-size: 40px;
-    margin-bottom: 5px;
-    text-shadow: 0px 0px 15px #0077ff;
+    background: linear-gradient(135deg, #5bbcff, #0077ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 15px rgba(91, 188, 255, 0.3));
 }
 
-.jd-lines {
-    font-size: 22px;
-    color: #c7c7c7;
-    margin-bottom: 15px;
+.jd-tagline {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: rgba(199, 199, 199, 0.9);
+    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
 .text-box {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(6px);
-    padding: 25px;
-    width: 75%;
-    margin: auto;
-    border-radius: 15px;
-    color: #eaeaea;
-    font-size: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 20px;
+    color: rgba(234, 234, 234, 0.9);
+    font-size: clamp(1rem, 2vw, 1.1rem);
     line-height: 1.9;
-    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    margin-top: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.4s ease;
 }
 
-a {
-    color: #ffdd99;
+.text-box:hover {
+    border-color: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+}
+
+.home-link {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 15px 40px;
+    background: rgba(255, 215, 0, 0.08);
+    color: rgba(255, 215, 0, 0.9);
     text-decoration: none;
-    font-size: 24px;
-    transition: 0.3s;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.4s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-a:hover {
-    color: #ffb84d;
-    text-shadow: 0px 0px 12px #ffcc66;
+.btn-home:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    transform: translateY(-3px);
 }
 
-.footer-link {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.center {
-    text-align: center;
-}
-
-/* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
-    .main-title {
-        font-size: 32px;
-        margin-top: 20px;
-        letter-spacing: 1px;
+    .content-wrapper {
+        padding: 30px 15px;
     }
-    
-    .sub-title {
-        font-size: 20px;
+
+    .main-title {
         margin-bottom: 15px;
     }
-    
-    p {
-        font-size: 18px;
+
+    .sub-title {
+        margin-bottom: 25px;
+    }
+
+    .divider {
         width: 90%;
-        line-height: 1.7;
+        margin: 30px auto;
     }
-    
-    hr {
-        width: 90%;
-        margin: 20px auto;
+
+    .intro-section {
+        margin: 30px auto;
     }
-    
-    .table-box {
-        width: 95%;
-        margin-top: 30px;
+
+    .intro-text {
+        padding: 25px 20px;
+        line-height: 1.8;
     }
-    
-    .jd-name {
-        font-size: 30px;
+
+    .profile-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 40px auto;
     }
-    
-    .jd-lines {
-        font-size: 18px;
-    }
-    
+
     .text-box {
-        width: 90%;
-        padding: 20px;
-        font-size: 18px;
-        line-height: 1.7;
-        margin-top: 10px;
+        padding: 25px 20px;
+        line-height: 1.8;
     }
-    
-    a {
-        font-size: 20px;
+
+    .home-link {
+        margin-top: 50px;
     }
-    
-    .footer-link {
-        margin-top: 30px;
+
+    .btn-home {
+        padding: 12px 35px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .main-title {
-        font-size: 28px;
+    .content-wrapper {
+        padding: 20px 10px;
     }
-    
-    .sub-title {
-        font-size: 18px;
-    }
-    
-    p {
-        font-size: 16px;
+
+    .divider {
         width: 95%;
+        margin: 25px auto;
     }
-    
-    .jd-name {
-        font-size: 26px;
+
+    .intro-section {
+        margin: 25px auto;
     }
-    
-    .jd-lines {
-        font-size: 16px;
+
+    .intro-text {
+        padding: 20px 15px;
+        line-height: 1.7;
+        border-radius: 15px;
     }
-    
+
+    .profile-section {
+        gap: 25px;
+        margin: 30px auto;
+    }
+
+    .profile-image img {
+        border-radius: 15px;
+    }
+
+    .jd-tagline {
+        margin-bottom: 20px;
+    }
+
     .text-box {
-        width: 95%;
-        padding: 15px;
-        font-size: 16px;
+        padding: 20px 15px;
+        line-height: 1.7;
+        border-radius: 15px;
     }
-    
-    a {
-        font-size: 18px;
+
+    .home-link {
+        margin-top: 40px;
+    }
+
+    .btn-home {
+        padding: 12px 30px;
     }
 }

@@ -1,122 +1,336 @@
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: "Poppins", Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.stars, .stars2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.stars {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><circle cx="1" cy="1" r="1" fill="%23fff"/></svg>') repeat;
+    animation: animateStars 50s linear infinite;
+    opacity: 0.3;
+}
+
+.stars2 {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3"><circle cx="1.5" cy="1.5" r="1" fill="%23fff"/></svg>') repeat;
+    animation: animateStars 100s linear infinite;
+    opacity: 0.2;
+}
+
+@keyframes animateStars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-2000px); }
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
     text-align: center;
 }
 
-h1 {
-    color: #ffcc33;
-    font-size: 42px;
-    margin-top: 30px;
-    text-shadow: 0 0 15px #ffdd55;
+.page-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ff6b35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+    margin-bottom: 30px;
+    font-weight: 700;
+    animation: fadeInDown 1s ease-out;
 }
 
-hr {
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.divider {
     width: 80%;
-    border: none;
+    max-width: 400px;
     height: 2px;
-    background: linear-gradient(to right, transparent, #555, transparent);
-    margin: 25px auto;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    margin: 40px auto;
+    opacity: 0.6;
 }
 
-img {
-    max-width: 90%;
-    width: 500px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.15);
+.movie-section {
+    margin: 50px auto;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.movie-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #ffd700;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+}
+
+.movie-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.movie-card:hover {
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+.image-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+.image-container img {
+    width: 100%;
     height: auto;
+    display: block;
+    border-radius: 20px;
+    transition: transform 0.5s ease;
 }
 
-.download-link {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #ffb300;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+.play-icon {
+    font-size: 4rem;
+    color: #ffd700;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
     color: #000;
-    font-size: 22px;
-    border-radius: 10px;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 700;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: 0.3s;
+    border: none;
+    box-shadow: 0 5px 25px rgba(255, 215, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    letter-spacing: 1px;
 }
 
-.download-link:hover {
-    background: #ffd65c;
-    box-shadow: 0 0 15px #ffcc33;
+.download-btn:hover {
+    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+    box-shadow: 0 8px 35px rgba(255, 215, 0, 0.6);
+    transform: translateY(-3px);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 .home-link {
-    color: #f0d7b1;
-    font-size: 22px;
+    margin-top: 60px;
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 15px 40px;
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
     text-decoration: none;
-    transition: 0.3s;
-    display: block;
-    margin-top: 20px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.4s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.home-link:hover {
-    color: #ffb347;
-    text-shadow: 0 0 10px #ffb347;
+.btn-home:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    transform: translateY(-3px);
 }
 
-
+/* Mobile Responsive */
 @media screen and (max-width: 768px) {
-    h1 {
-        font-size: 32px;
-        margin-top: 20px;
+    .content-wrapper {
+        padding: 30px 15px;
     }
-    
-    hr {
+
+    .page-title {
+        margin-bottom: 25px;
+    }
+
+    .divider {
         width: 90%;
-        margin: 20px auto;
+        margin: 30px auto;
     }
-    
-    img {
-        width: 90%;
-        max-width: 400px;
+
+    .movie-section {
+        margin: 40px auto;
     }
-    
-    .download-link {
-        font-size: 20px;
-        padding: 14px 30px;
-        margin-top: 15px;
+
+    .movie-title {
+        margin-bottom: 30px;
     }
-    
+
+    .movie-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .image-container {
+        margin-bottom: 25px;
+    }
+
+    .download-btn {
+        padding: 16px 35px;
+        gap: 10px;
+    }
+
     .home-link {
-        font-size: 20px;
-        margin-top: 15px;
+        margin-top: 50px;
+    }
+
+    .btn-home {
+        padding: 12px 35px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    h1 {
-        font-size: 28px;
-        margin-top: 15px;
+    .content-wrapper {
+        padding: 20px 10px;
     }
-    
-    hr {
+
+    .page-title {
+        margin-bottom: 20px;
+    }
+
+    .divider {
         width: 95%;
-        margin: 15px auto;
+        margin: 25px auto;
     }
-    
-    img {
-        width: 95%;
-        max-width: 300px;
-        border-radius: 10px;
+
+    .movie-section {
+        margin: 30px auto;
     }
-    
-    .download-link {
-        font-size: 18px;
-        padding: 12px 25px;
-        margin-top: 12px;
+
+    .movie-title {
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+    }
+
+    .movie-card {
+        padding: 25px 15px;
+        border-radius: 15px;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+
+    .image-container img {
+        border-radius: 15px;
+    }
+
+    .play-icon {
+        font-size: 3rem;
+    }
+
+    .download-btn {
+        padding: 14px 30px;
+        gap: 8px;
         width: 90%;
     }
-    
+
     .home-link {
-        font-size: 18px;
-        margin-top: 12px;
+        margin-top: 40px;
+    }
+
+    .btn-home {
+        padding: 12px 30px;
     }
 }

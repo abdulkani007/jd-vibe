@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Movie Download</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Download - JD Universe</title>
+    <link rel="stylesheet" href="movie.css">
 </head>
-
-<body bgcolor="black" style="color: white;">
-
-    <center>
-        <h1>Download and Enjoy 🔥</h1>
-    </center>
-    <hr>
-
-    <center>
-        <h1>MOVIE 🎬</h1>
-
-        <img src="movieimg.png" width="500px"><br><br>
-
-        <a href="https://share.google/QNW8mwOqLvgbsXAh1" style="color: yellow; font-size: 24px;">
-            Download Movie
-        </a>
-    </center>
-
-    <br><hr>
-
-    <center>
-        <h3>
-            <a href="index.html" style="color: bisque; font-size: 22px;">Home Page</a>
-        </h3>
-    </center>
-
+<body>
+    <canvas id="particles"></canvas>
+    
+    <div class="content-wrapper">
+        <h1 class="page-title">Download and Enjoy</h1>
+        
+        <div class="divider"></div>
+        
+        <div class="movie-section">
+            <h2 class="movie-title">MOVIE</h2>
+            
+            <div class="movie-card">
+                <div class="image-container">
+                    <img src="movieimg.png" alt="Movie Poster">
+                    <div class="overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                
+                <a href="https://share.google/QNW8mwOqLvgbsXAh1" class="download-btn">
+                    <span>Download Movie</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="home-link">
+            <a href="index.html" class="btn-home">
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </div>
+    <script src="particles.js"></script>
 </body>
 </html>
